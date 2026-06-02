@@ -35,9 +35,66 @@
             margin: 0 auto;
             padding: 0 24px;
             position: relative;
+            z-index: 2; 
         }
 
-        /* Навигационная панель (Верхняя линия) */
+        
+        .cornflower-decor {
+            position: absolute;
+            width: 380px;
+            height: 550px;
+            background: url('cornflower.png') center center / contain no-repeat;
+            opacity: 0.15; 
+            z-index: 1;   
+            pointer-events: none; 
+            transition: all 0.3s ease;
+        }
+
+        .decor-services-top-l {
+            top: 40px;
+            left: -120px;
+            transform: rotate(-15deg);
+        }
+        .decor-services-top-r {
+            top: 40px;
+            right: -120px;
+            transform: scaleX(-1) rotate(-15deg); /* Симметричное отражение */
+        }
+
+        .decor-services-bot-l {
+            bottom: -80px;
+            left: -140px;
+            transform: rotate(25deg);
+        }
+        .decor-services-bot-r {
+            bottom: -80px;
+            right: -140px;
+            transform: scaleX(-1) rotate(25deg); /* Симметричное отражение */
+        }
+
+        .decor-process-l {
+            
+            top: 52%;
+            left: -130px;
+            transform: translateY(-55%) rotate(-10deg);
+        }
+        .decor-process-r {
+            top: 52%;
+            right: -130px;
+            transform: translateY(-55%) scaleX(-1) rotate(-10deg); /* Симметричное отражение */
+        }
+
+        .decor-faq-l {
+            bottom: -260px;
+            left: -100px;
+            transform: rotate(60deg);
+        }
+        .decor-faq-r {
+            bottom: -260px;
+            right: -100px;
+            transform: scaleX(-1) rotate(60deg); /* Симметричное отражение */
+        }
+
         .top-bar {
             background: var(--white);
             border-bottom: 1px solid #E2E8F0;
@@ -95,7 +152,7 @@
         }
 
         .logo-img {
-            height: 45px; 
+            height: 70px; 
             width: auto;
             object-fit: contain;
         }
@@ -154,14 +211,15 @@
             transform: translateY(-1px);
         }
 
-        /* Главный экран (Hero) с относительным путем для GitHub Pages */
+
         .hero-section {
             position: relative;
-            background: url('./фото.jpg') center center / cover no-repeat;
+            background: url('фото.jpg') center center / cover no-repeat;
             padding: 160px 0 140px 0;
             color: var(--white);
             overflow: hidden;
         }
+
 
         .hero-section::before {
             content: '';
@@ -174,14 +232,14 @@
             z-index: 1;
         }
 
-        /* Адаптированный оверлей логотипа */
+      
         .hero-logo-overlay {
             position: absolute;
             top: 0;
             right: 0;
             width: 50%;
             height: 100%;
-            background: url('./outline.png') center center / contain no-repeat;
+            background: url('outline.png') center center / contain no-repeat;
             opacity: 0.25; 
             z-index: 1;
             pointer-events: none;
@@ -270,7 +328,7 @@
             transform: translateY(-2px);
         }
 
-        /* Быстрые цифры */
+        /* Секция: Быстрые цифры */
         .stats-section {
             background: var(--white);
             padding: 40px 0;
@@ -336,9 +394,10 @@
             border-radius: 2px;
         }
 
-        /* Услуги */
+        /* Секция: Услуги */
         .services-section {
             padding: 100px 0;
+            position: relative; /
         }
 
         .services-grid {
@@ -354,6 +413,7 @@
             border: 1px solid #E2E8F0;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            z-index: 3; 
         }
 
         .service-card:hover {
@@ -405,10 +465,11 @@
             line-height: 1.6;
         }
 
-        /* Преимущества */
+        /* Секция: Преимущества */
         .advantages-section {
             background: var(--cornflower-light);
             padding: 100px 0;
+            position: relative;
         }
 
         .advantages-grid {
@@ -424,6 +485,8 @@
             display: flex;
             gap: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+            position: relative;
+            z-index: 3;
         }
 
         .adv-number {
@@ -444,10 +507,11 @@
             color: var(--text-muted);
         }
 
-        /* Ход работы */
+        /* Секция: Как мы работаем */
         .process-section {
             padding: 100px 0;
             background: var(--white);
+            position: relative;
         }
 
         .process-steps {
@@ -464,6 +528,7 @@
             position: relative;
             text-align: center;
             padding: 0 20px;
+            z-index: 3;
         }
 
         .step-badge {
@@ -492,15 +557,18 @@
             color: var(--text-muted);
         }
 
-        /* FAQ */
+        /* Секция: FAQ */
         .faq-section {
             padding: 100px 0;
             background: #FAFAFA;
+            position: relative;
         }
 
         .faq-container {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 3;
         }
 
         .faq-item {
@@ -533,12 +601,14 @@
             padding-top: 15px;
         }
 
-        /* Футер */
+        /* Подвал сайта */
         .main-footer {
             background: var(--primary-dark);
             color: #94A3B8;
             padding: 80px 0 30px 0;
             font-size: 14px;
+            position: relative;
+            z-index: 5;
         }
 
         .footer-grid {
@@ -562,6 +632,24 @@
             line-height: 1.6;
         }
 
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #94A3B8;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
         .footer-accent-text {
             color: var(--white);
             font-weight: 600;
@@ -579,7 +667,38 @@
             font-size: 13px;
         }
 
-        /* Адаптивность */
+        /* Адаптивность*/
+        @media (max-width: 1400px) {
+            .cornflower-decor {
+                width: 300px;
+                height: 440px;
+            }
+            .decor-services-top-l { left: -140px; }
+            .decor-services-top-r { right: -140px; }
+            .decor-services-bot-l { left: -150px; bottom: -60px; }
+            .decor-services-bot-r { right: -150px; bottom: -60px; }
+            .decor-process-l { left: -150px; }
+            .decor-process-r { right: -150px; }
+            .decor-faq-l { left: -130px; }
+            .decor-faq-r { right: -130px; }
+        }
+
+        @media (max-width: 1100px) {
+            .cornflower-decor {
+                width: 240px;
+                height: 350px;
+                opacity: 0.15; 
+            }
+            .decor-services-top-l { left: -120px; }
+            .decor-services-top-r { right: -120px; }
+            .decor-services-bot-l { left: -120px; }
+            .decor-services-bot-r { right: -120px; }
+            .decor-process-l { left: -125px; }
+            .decor-process-r { right: -125px; }
+            .decor-faq-l { left: -100px; }
+            .decor-faq-r { right: -100px; }
+        }
+
         @media (max-width: 992px) {
             .hero-logo-overlay {
                 width: 100%;
@@ -603,6 +722,9 @@
             .section-title {
                 font-size: 26px;
             }
+            .cornflower-decor {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -624,10 +746,10 @@
     <header class="main-header">
         <div class="container header-inner">
             <a href="#" class="logo-block">
-                <img src="./simplлогологис2.png" alt="ООО МежаСервис Логотип" class="logo-img">
+                <img src="simplлогологис2.png" alt="ООО МежаСервис Логотип" class="logo-img" onerror="this.style.display='none';">
                 <div class="logo-text">
                     <span class="logo-title">МЕЖАСЕРВИС</span>
-                    <span class="logo-subtitle">ТАМОЖЕННЫЙ ПРЕДСТАВИТЕЛЬ</span>
+                    <span class="logo-subtitle">ТАМОЖЕННЫЕ УСЛУГИ</span>
                 </div>
             </a>
             <ul class="nav-menu">
@@ -636,12 +758,13 @@
                 <li><a href="#process">Как мы работаем</a></li>
                 <li><a href="#faq">Вопросы и ответы</a></li>
             </ul>
-            <a href="https://wa.me/375336161711" class="cta-btn">Отправить документы</a>
+            <a class="cta-btn">Отправить документы</a>
         </div>
     </header>
 
     <section class="hero-section">
         <div class="hero-logo-overlay"></div>
+        
         <div class="container">
             <div class="hero-inner">
                 <div class="hero-badge">Профессиональное декларирование грузов</div>
@@ -649,7 +772,7 @@
                 <p>Оформление документов при процедуре таможенного транзита ЕАЭС и ЕС. Опыт, доскональное знание законодательства и круглосуточная поддержка водителей в пути.</p>
                 <div class="hero-buttons">
                     <a href="#services" class="btn-primary">Наши услуги</a>
-                    <a href="https://viber.click/375336161711" class="btn-secondary">Связаться в Viber</a>
+                    <a class="btn-secondary">Связаться в Viber</a>
                 </div>
             </div>
         </div>
@@ -679,6 +802,14 @@
     </div>
 
     <section class="services-section" id="services">
+        <!-- Скриншот 1 (1in.png): Верхние симметричные васильки возле заголовка -->
+        <div class="cornflower-decor decor-services-top-l"></div>
+        <div class="cornflower-decor decor-services-top-r"></div>
+
+        <!-- Скриншот 2 (2in.png): Нижние симметричные васильки под карточками услуг -->
+        <div class="cornflower-decor decor-services-bot-l"></div>
+        <div class="cornflower-decor decor-services-bot-r"></div>
+
         <div class="container">
             <div class="section-header">
                 <span class="section-badge">Что мы делаем</span>
@@ -742,6 +873,10 @@
     </section>
 
     <section class="process-section" id="process">
+        <!-- Скриншот 3 (3in.png): Симметричные васильки, огибающие шаги процесса оформления -->
+        <div class="cornflower-decor decor-process-l"></div>
+        <div class="cornflower-decor decor-process-r"></div>
+
         <div class="container">
             <div class="section-header">
                 <span class="section-badge">Порядок действий</span>
@@ -768,6 +903,10 @@
     </section>
 
     <section class="faq-section" id="faq">
+        <!-- Скриншот 4 (4in.png): Нижние васильки по бокам от раскрывающихся вопросов FAQ -->
+        <div class="cornflower-decor decor-faq-l"></div>
+        <div class="cornflower-decor decor-faq-r"></div>
+
         <div class="container">
             <div class="section-header">
                 <span class="section-badge">Отвечаем на вопросы</span>
